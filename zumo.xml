@@ -80,7 +80,7 @@
 
         results.appendChild(my_result);
       }
-      response.object = results;
+      response.object = { a: 1, b: true };
       ]]></execute>
     </select>
   </bindings>
