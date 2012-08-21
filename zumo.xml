@@ -12,7 +12,11 @@
             <key id="tableName" type="xs:string" paramType="variable" required="true" />  
       </inputs>      
       <execute><![CDATA[
-         var url = "https://stevetest2.zumotcant.antares-test.windows-int.net/tables/mytable",
+         if (appUrl.charAt(appUrl.length - 1) !== '/') {
+             appUrl += '/';
+         }
+         
+         var url = appUrl + "tables/" + tableName,
              myRequest = y.rest(url),
              data = myRequest.get().response;
          response.object = { data: eval("(" + data + ")") };
