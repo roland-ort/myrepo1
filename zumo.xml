@@ -21,17 +21,21 @@
          
          var url = appUrl + "tables/" + tableName + (id ? "/" + id : ""),
              myRequest = y.rest(url),
-             zumoResponse;
+             zumoResponse,
+             responseData;
         
          switch (operation) {
-             case "read": zumoResponse = myRequest.get(); break;
+             case "read": 
+                zumoResponse = myRequest.get();
+                responseData = eval("(" + zumoResponse.response + ")");
+                break;
              case "insert": zumoResponse = myRequest.post(payload); break;
              case "delete": zumoResponse = myRequest.del(); break;
          }
          
          response.object = {
              statusCode: zumoResponse.status,
-             data: eval("(" + zumoResponse.response + ")") 
+             data: responseData
          };
       ]]></execute>
     </select>
