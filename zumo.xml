@@ -11,5 +11,10 @@
          response.object = {a:1, b:true};
       ]]></execute>
     </select>
+    <delete itemPath="" produces="JSON">
+      <execute><![CDATA[
+         response.object = "deleting";
+      ]]></execute>
+    </delete>    
   </bindings>
 </table>
