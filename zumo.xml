@@ -23,7 +23,7 @@
              zumoResponse;
         
          switch (operation) {
-             case "get": zumoResponse = myRequest.get(); break;
+             case "read": zumoResponse = myRequest.get(); break;
              case "insert": zumoResponse = myRequest.post(payload); break;
          }
          
