@@ -10,6 +10,8 @@
       <inputs>  
             <key id="appUrl" type="xs:string" paramType="variable" required="true" />  
             <key id="tableName" type="xs:string" paramType="variable" required="true" />  
+            <key id="operation" type="xs:string" paramType="variable" required="true" />
+            <key id="payload" type="xs:string" paramType="variable" required="false" />
       </inputs>      
       <execute><![CDATA[
          if (appUrl.charAt(appUrl.length - 1) !== '/') {
@@ -18,8 +20,17 @@
          
          var url = appUrl + "tables/" + tableName,
              myRequest = y.rest(url),
-             data = myRequest.get().response;
-         response.object = { data: eval("(" + data + ")") };
+             zumoResponse;
+        
+         switch (operation) {
+             case "get": zumoResponse = myRequest.get(); break;
+             case "insert": zumoResponse = myRequest.post(payload); break;
+         }
+         
+         response.object = {
+             statusCode: zumoResponse.status,
+             data: eval("(" + zumoResponse.response + ")") 
+         };
       ]]></execute>
     </select>
   </bindings>
