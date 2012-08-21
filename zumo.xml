@@ -30,6 +30,7 @@
                 responseData = eval("(" + zumoResponse.response + ")");
                 break;
              case "insert": zumoResponse = myRequest.post(payload); break;
+             case "update": zumoResponse = myRequest.post(payload); break;
              case "delete": zumoResponse = myRequest.del(); break;
          }
          
