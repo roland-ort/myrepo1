@@ -8,9 +8,7 @@
   <bindings>
     <select itemPath="" produces="JSON">
       <execute><![CDATA[
-      var url = "http://www.bbcgoodfood.com/content/local/seasonal/table";
-      var query   = y.query("SELECT * FROM html WHERE url=@url AND xpath=@xpath", {url: url, xpath: xpath});
-      response.object = query.results;
+         response.object = {a:1, b:true};
       ]]></execute>
     </select>
   </bindings>
