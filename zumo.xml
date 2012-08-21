@@ -27,7 +27,7 @@
          switch (operation) {
              case "read": 
                 zumoResponse = myRequest.get();
-                responseData = y.parseJson("{ data: " + zumoResponse.response + " }").data;
+                responseData = eval("(" + zumoResponse.response + ")");
                 break;
              case "insert": zumoResponse = myRequest.post(payload); break;
              case "update": zumoResponse = myRequest.post(payload); break;
