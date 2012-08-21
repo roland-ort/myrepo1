@@ -38,6 +38,10 @@
              statusCode: zumoResponse.status,
              data: responseData
          };
+         
+         if (statusCode >= 400) {
+            response.object.error = zumoResponse.response;
+         }
       ]]></execute>
     </select>
   </bindings>
