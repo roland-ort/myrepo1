@@ -37,7 +37,7 @@
          response.object = {
              statusCode: zumoResponse.status,
              data: responseData,
-             info: String(myRequest.post)
+             info: String(myRequest.patch)
          };
       ]]></execute>
     </select>
