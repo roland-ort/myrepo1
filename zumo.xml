@@ -33,8 +33,10 @@
                 responseData = eval("(" + zumoResponse.response + ")");
                 break;
              case "insert": zumoResponse = myRequest.post(payload); break;
-             case "update": zumoResponse = myRequest.post(payload); break;
              case "delete": zumoResponse = myRequest.del(); break;
+             // TODO: Support "update". Currently can't because server requires HTTP method to be PATCH
+             // but YQL has no API for issuing PATCH requests. Ideally, we could work around this by
+             // using X-HTTP-Method-Override, but unfortunately the server doesn't support that either.
          }
          
          response.object = {
