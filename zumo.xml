@@ -11,6 +11,7 @@
             <key id="appUrl" type="xs:string" paramType="variable" required="true" />  
             <key id="tableName" type="xs:string" paramType="variable" required="true" />  
             <key id="operation" type="xs:string" paramType="variable" required="true" />
+            <key id="id" type="xs:number" paramType="variable" required="false" />
             <key id="payload" type="xs:string" paramType="variable" required="false" />
       </inputs>      
       <execute><![CDATA[
@@ -18,13 +19,14 @@
              appUrl += '/';
          }
          
-         var url = appUrl + "tables/" + tableName,
+         var url = appUrl + "tables/" + tableName + (id ? "/" + id : ""),
              myRequest = y.rest(url),
              zumoResponse;
         
          switch (operation) {
              case "read": zumoResponse = myRequest.get(); break;
              case "insert": zumoResponse = myRequest.post(payload); break;
+             case "delete": zumoResponse = myRequest.del(); break;
          }
          
          response.object = {
