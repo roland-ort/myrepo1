@@ -23,24 +23,24 @@
              myRequest = y.rest(url),
              zumoResponse,
              responseData;
-        
-         switch (operation) {
-             case "read": 
-                zumoResponse = myRequest.get();
-                responseData = eval("(" + zumoResponse.response + ")");
-                break;
-             case "insert": zumoResponse = myRequest.post(payload); break;
-             case "update": zumoResponse = myRequest.post(payload); break;
-             case "delete": zumoResponse = myRequest.del(); break;
-         }
          
-         response.object = {
-             statusCode: zumoResponse.status,
-             data: responseData
-         };
-         
-         if (statusCode >= 400) {
-            response.object.error = zumoResponse.response;
+         try {
+           switch (operation) {
+               case "read": 
+                  zumoResponse = myRequest.get();
+                  responseData = eval("(" + zumoResponse.response + ")");
+                  break;
+               case "insert": zumoResponse = myRequest.post(payload); break;
+               case "update": zumoResponse = myRequest.post(payload); break;
+               case "delete": zumoResponse = myRequest.del(); break;
+           }
+           
+           response.object = {
+               statusCode: zumoResponse.status,
+               data: responseData
+           };
+         } catch (ex) {
+            response.object = { error: "Yes" };
          }
       ]]></execute>
     </select>
