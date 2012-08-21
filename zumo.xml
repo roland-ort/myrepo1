@@ -8,13 +8,11 @@
   <bindings>
     <select itemPath="" produces="JSON">
       <execute><![CDATA[
-         response.object = {a:1, b:true};
+         var url = "https://stevetest2.zumotcant.antares-test.windows-int.net/tables/mytable",
+             myRequest = y.rest(url),
+             data = myRequest.get().response;
+         response.object = data; 
       ]]></execute>
     </select>
-    <delete itemPath="" produces="JSON">
-      <execute><![CDATA[
-         response.object = "deleting";
-      ]]></execute>
-    </delete>    
   </bindings>
 </table>
