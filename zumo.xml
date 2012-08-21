@@ -11,7 +11,7 @@
          var url = "https://stevetest2.zumotcant.antares-test.windows-int.net/tables/mytable",
              myRequest = y.rest(url),
              data = myRequest.get().response;
-         response.object = data; 
+         response.object = JSON.parse(data); 
       ]]></execute>
     </select>
   </bindings>
