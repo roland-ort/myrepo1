@@ -7,6 +7,10 @@
   </meta>
   <bindings>
     <select itemPath="" produces="JSON">
+      <inputs>  
+            <key id="appUrl" type="xs:string" paramType="variable" required="true" />  
+            <key id="tableName" type="xs:string" paramType="variable" required="true" />  
+      </inputs>      
       <execute><![CDATA[
          var url = "https://stevetest2.zumotcant.antares-test.windows-int.net/tables/mytable",
              myRequest = y.rest(url),
