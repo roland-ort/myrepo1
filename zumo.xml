@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
   <meta>
-    <author>Steve Sanderson</author>
+    <author>Steve</author>
     <sampleQuery>SELECT * FROM zumo;</sampleQuery>
     <documentationURL></documentationURL>
+    <!-- Example in YQL Console:
+         USE 'https://raw.github.com/roland-ort/myrepo1/master/zumo.xml' AS zumo; select * from zumo where appUrl='https://stevetest2.zumotcant.antares-test.windows-int.net' and tableName='mytable' and operation='read'
+    -->
   </meta>
   <bindings>
     <select itemPath="" produces="JSON">
